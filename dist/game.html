@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="./resources/icon.jpg" />
+    <title>Tic-Tac-Toe Game</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="output.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body class="bg-[#1A2A33]">
+    <main
+      class="flex flex-col justify-center items-center gap-6"
+      style="width: 100vw; height: 100vh"
+    >
+      <div id="header" class="flex gap-14">
+        <div class="flex gap-1">
+          <div class="text-3xl font-xo text-[#31C3BD]">X</div>
+          <div class="text-3xl font-xo text-[#F2B137]">O</div>
+        </div>
+        <div
+          class="h-8 w-20 bg-[#1F3641] rounded-md flex justify-center items-center shadow-xl shadow-[#10212A] text-white"
+        >
+          X Turn
+        </div>
+        <button class="bg-[#A8BFC9] shadow-md shadow-[#6B8997] h-8 w-8">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+      </div>
+
+      <div
+        id="main-game"
+        class="flex flex-wrap w-96 h-80 gap-2 justify-center items-center"
+      >
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+        <button
+          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+        ></button>
+      </div>
+
+      <div id="footer" class="flex">
+        <div
+          class="text-black bg-[#31C3BD] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24 ml-2"
+        >
+          X -
+        </div>
+        <div
+          class="text-black bg-[#A8BFC9] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
+        >
+          ties -
+        </div>
+        <div
+          class="text-black bg-[#F2B137] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
+        >
+          O -
+        </div>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>

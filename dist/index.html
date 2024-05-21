@@ -3,10 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/jpg" href="./resources/icon.jpg" />
     <title>Tic-Tac-Toe Game</title>
     <link rel="stylesheet" href="output.css" />
   </head>
-  <body class="bg-slate-900">
-    <h1 class="bg-yellow-400 text-green-400">Test</h1>
+  <body class="bg-[#1A2A33] m-0 p-0">
+    <div class="contaainer flex justify-center items-center flex-col m-9 gap-8">
+      <h1 class="text-4xl font-bold text-">
+        <span class="text-[#31C3BD]">Tic-Tac-Toe</span>
+        <span class="text-[#F2B137]">Game</span>
+      </h1>
+      <div id="top" class="flex gap-2 font-bold">
+        <div class="text-3xl font-xo text-[#31C3BD]">X</div>
+        <div class="text-3xl font-xo text-[#F2B137]">O</div>
+      </div>
+      <div
+        id="box"
+        class="h-40 w-80 bg-[#1F3641] rounded-2xl text-center shadow-md shadow-cyan-500/50"
+      >
+        <h2 class="text-teal-100 font-bold text-xl mt-2">Players</h2>
+        <div class="flex gap-3 justify-center mt-2">
+          <div
+            id="playesX"
+            class="h-16 w-28 bg-[#A8BFC9] text-[#000000] text-base font-semibold rounded-xl flex justify-center items-center"
+          >
+            Player 1'st Badge - X
+          </div>
+          <div
+            id="playerO"
+            class="h-16 w-28 bg-[#A8BFC9] text-[#000000] text-base font-semibold rounded-xl flex justify-center items-center"
+          >
+            Player 2'nd Badge - O
+          </div>
+        </div>
+        <h3 class="mt-2 text-teal-100 font-semibold">
+          REMEMBER : X GOES FIRST
+        </h3>
+      </div>
+      <button
+        id="startNewGame"
+        class="focus:outline-none text-black bg-[#F2B137] hover:bg-[#f4bf5f] focus:ring-4 focus:ring-yellow-300 font-semibold rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:focus:ring-[#906025]"
+      >
+        Start New Game
+      </button>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
