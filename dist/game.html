@@ -21,9 +21,9 @@
       }
     </style>
   </head>
-  <body class="bg-[#1A2A33]">
+  <body class="bg-[#1A2A33] overflow-hidden">
     <main
-      class="flex flex-col justify-center items-center gap-6"
+      class="flex flex-col justify-center items-center gap-6 static z-10"
       style="width: 100vw; height: 100vh"
     >
       <div id="header" class="flex gap-14">
@@ -32,11 +32,15 @@
           <div class="text-3xl font-xo text-[#F2B137]">O</div>
         </div>
         <div
+          id="turnPrinter"
           class="h-8 w-20 bg-[#1F3641] rounded-md flex justify-center items-center shadow-xl shadow-[#10212A] text-white"
         >
           X Turn
         </div>
-        <button class="bg-[#A8BFC9] shadow-md shadow-[#6B8997] h-8 w-8">
+        <button
+          id="reset"
+          class="bg-[#A8BFC9] shadow-md shadow-[#6B8997] h-8 w-8"
+        >
           <i class="fa-solid fa-rotate-right"></i>
         </button>
       </div>
@@ -46,51 +50,63 @@
         class="flex flex-wrap w-96 h-80 gap-2 justify-center items-center"
       >
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
         <button
-          class="h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black"
+          class="box h-24 w-24 bg-[#1F3641] rounded-xl shadow-lg shadow-black text-5xl font-xo"
         ></button>
       </div>
 
       <div id="footer" class="flex">
         <div
-          class="text-black bg-[#31C3BD] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24 ml-2"
+          class="XWins text-black bg-[#31C3BD] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24 ml-2"
         >
           X -
         </div>
         <div
-          class="text-black bg-[#A8BFC9] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
+          class="ties text-black bg-[#A8BFC9] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
         >
           ties -
         </div>
         <div
-          class="text-black bg-[#F2B137] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
+          class="OWins text-black bg-[#F2B137] font-semibold rounded-lg text-sm px-5 py-2.5 me-2 mb-2 h-10 w-24"
         >
           O -
         </div>
       </div>
+
+      <div
+        id="popup"
+        class="w-[40%] h-40 rounded-2xl bg-[#A7BEC8] absolute z-20 font-bold text-4xl flex items-center justify-center invisible"
+      ></div>
+      <button
+        type="button"
+        id="closeBtn"
+        class="absolute z-20 invisible text-white bg-black font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 bottom-36"
+      >
+        Close
+      </button>
     </main>
 
     <script src="game.js"></script>
