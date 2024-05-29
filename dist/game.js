@@ -23,29 +23,22 @@ const winningPattern = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
-    numbersOfTimeBtnClicked++;
-    if (numbersOfTimeBtnClicked == 9) {
-      numbersOfTimeties++;
-      ties.innerText = `ties - ${numbersOfTimeties}`;
-      winner = "ties";
-      showWinner();
-    }
     if (turnX) {
       turnPrinter.innerText = "O Turn";
       box.style.color = "#31C3BD";
       box.innerText = "X";
       turnX = false;
-      checkWinner();
     } else {
       turnPrinter.innerText = "X Turn";
       box.style.color = "#F2B137";
       box.innerText = "O";
       turnX = true;
-      checkWinner();
     }
     box.disabled = true;
+    checkWinner();
   });
 });
 
@@ -54,6 +47,7 @@ const disableBtn = () => {
     box.disabled = true;
   }
 };
+
 const enableBtn = () => {
   for (let box of boxes) {
     box.disabled = false;
@@ -72,35 +66,43 @@ closeBtn.addEventListener("click", () => {
   closeBtn.style.visibility = "hidden";
 });
 
-const showWinner = () => {
+const showPopup = (message) => {
   popup.style.visibility = "visible";
-  popup.innerHTML = `Winner: ${winner}`;
+  popup.innerHTML = message;
   closeBtn.style.visibility = "visible";
   numbersOfTimeBtnClicked = 0;
 };
-function checkWinner() {
+
+const checkWinner = () => {
+  let isWinner = false;
   for (let pattern of winningPattern) {
     let pos1Value = boxes[pattern[0]].innerText;
     let pos2Value = boxes[pattern[1]].innerText;
     let pos3Value = boxes[pattern[2]].innerText;
-    if (pos1Value != "" && pos2Value != "" && pos3Value != "") {
-      if (pos1Value == pos2Value && pos2Value == pos3Value) {
-        console.log("Winner" + pos1Value);
+    if (pos1Value !== "" && pos2Value !== "" && pos3Value !== "") {
+      if (pos1Value === pos2Value && pos2Value === pos3Value) {
         disableBtn();
-        if (pos1Value == "X") {
+        if (pos1Value === "X") {
           numbersOfTimeXWins++;
           XWins.innerText = `X - ${numbersOfTimeXWins}`;
           winner = "X";
           turnPrinter.innerText = `X Wins`;
-          showWinner();
-        } else if (pos1Value == "O") {
+        } else if (pos1Value === "O") {
           numbersOfTimeOWins++;
           OWins.innerText = `O - ${numbersOfTimeOWins}`;
           winner = "O";
           turnPrinter.innerText = `O Wins`;
-          showWinner();
         }
+        showPopup(`Winner: ${winner}`);
+        isWinner = true;
+        break;
       }
     }
   }
-}
+  if (!isWinner && [...boxes].every((box) => box.innerText !== "")) {
+    numbersOfTimeties++;
+    ties.innerText = `Ties - ${numbersOfTimeties}`;
+    showPopup("It's a Draw!");
+    turnPrinter.innerText = "It's a Draw!";
+  }
+};
